@@ -6,8 +6,8 @@ app = Flask(__name__)
 config_path = os.environ.get("CONFIG_PATH", "tuneful.config.DevelopmentConfig")
 app.config.from_object(config_path)
 
-import api
-import views
+from . import api
+from . import views
 
-from database import Base, engine
+from .database import Base, engine
 Base.metadata.create_all(engine)

@@ -2,10 +2,11 @@ import unittest
 import os
 import shutil
 import json
-from urlparse import urlparse
-from StringIO import StringIO
+try: from urllib.parse import urlparse
+except ImportError: from urlparse import urlparse # Py2 compatibility
+from io import StringIO
 
-import sys; print sys.modules.keys()
+import sys; print(list(sys.modules.keys()))
 # Configure our app to use the testing databse
 os.environ["CONFIG_PATH"] = "tuneful.config.TestingConfig"
 
